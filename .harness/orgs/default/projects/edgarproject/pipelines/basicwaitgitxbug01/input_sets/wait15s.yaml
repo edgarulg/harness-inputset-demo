@@ -1,0 +1,19 @@
+inputSet:
+  name: wait-15s
+  identifier: wait15s
+  orgIdentifier: default
+  projectIdentifier: edgarproject
+  pipeline:
+    identifier: basicwaitgitxbug01
+    stages:
+      - stage:
+          identifier: waitstage
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    identifier: Wait_1
+                    type: Wait
+                    spec:
+                      duration: 15s
