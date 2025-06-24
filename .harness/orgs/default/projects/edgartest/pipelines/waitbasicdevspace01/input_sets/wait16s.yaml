@@ -1,0 +1,19 @@
+inputSet:
+  name: wait-16s
+  identifier: wait16s
+  orgIdentifier: default
+  projectIdentifier: edgartest
+  pipeline:
+    identifier: waitbasicdevspace01
+    stages:
+      - stage:
+          identifier: waitstage
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    identifier: Wait_1
+                    type: Wait
+                    spec:
+                      duration: 16s
