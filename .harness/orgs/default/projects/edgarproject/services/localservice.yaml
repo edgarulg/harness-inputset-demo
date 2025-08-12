@@ -15,6 +15,8 @@ service:
                 spec:
                   files:
                     - /helm-chart
+              valuesPaths:
+                - /basic-values/values-old.yaml
               skipResourceVersioning: false
               enableDeclarativeRollback: false
       artifacts:
