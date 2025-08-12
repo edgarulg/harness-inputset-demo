@@ -1,0 +1,6 @@
+environment:
+  name: local-env
+  identifier: localenv
+  orgIdentifier: default
+  projectIdentifier: edgarproject
+  type: PreProduction
