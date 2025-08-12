@@ -1,0 +1,5 @@
+service:
+  name: local-service
+  identifier: localservice
+  orgIdentifier: default
+  projectIdentifier: edgarproject
