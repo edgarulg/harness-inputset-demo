@@ -1,0 +1,13 @@
+overrides:
+  manifests:
+    - manifest:
+        identifier: override1
+        type: Values
+        spec:
+          store:
+            spec:
+              files:
+                - /values.yaml
+              secretFiles: null
+            type: Harness
+          optionalValuesYaml: null
