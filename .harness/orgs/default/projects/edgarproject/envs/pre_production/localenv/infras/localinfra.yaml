@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: local-infra
+  identifier: localinfra
+  orgIdentifier: default
+  projectIdentifier: edgarproject
+  environmentRef: localenv
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: <+input>
+    namespace: <+input>
+    releaseName: <+input>
+  allowSimultaneousDeployments: false
