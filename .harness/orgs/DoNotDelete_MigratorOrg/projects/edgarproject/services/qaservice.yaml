@@ -3,3 +3,38 @@ service:
   identifier: qaservice
   orgIdentifier: DoNotDelete_MigratorOrg
   projectIdentifier: edgarproject
+  serviceDefinition:
+    spec:
+      manifests:
+        - manifest:
+            identifier: localmanifest
+            type: K8sManifest
+            spec:
+              store:
+                type: Harness
+                spec:
+                  files:
+                    - /helm-chart
+              valuesPaths:
+                - /basic-values/values-old.yaml
+              skipResourceVersioning: false
+              enableDeclarativeRollback: false
+      artifacts:
+        primary:
+          primaryArtifactRef: <+input>
+          sources:
+            - spec:
+                connectorRef: account.harnessImage
+                imagePath: /demo1
+                tag: <+input>
+                digest: ""
+              identifier: artifact1
+              type: DockerRegistry
+            - spec:
+                connectorRef: account.harnessImage
+                imagePath: /demo2
+                tag: <+input>
+                digest: ""
+              identifier: artifact2
+              type: DockerRegistry
+    type: Kubernetes
