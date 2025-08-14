@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: qa-infra
+  identifier: qainfra
+  orgIdentifier: DoNotDelete_MigratorOrg
+  projectIdentifier: edgarproject
+  environmentRef: qaenv
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: <+input>
+    namespace: <+input>
+    releaseName: <+input>
+  allowSimultaneousDeployments: false
