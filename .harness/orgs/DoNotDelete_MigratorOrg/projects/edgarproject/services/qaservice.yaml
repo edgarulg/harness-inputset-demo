@@ -1,0 +1,5 @@
+service:
+  name: qa-service
+  identifier: qaservice
+  orgIdentifier: DoNotDelete_MigratorOrg
+  projectIdentifier: edgarproject
