@@ -3,3 +3,40 @@ service:
   identifier: edgarserviceoverridebug
   orgIdentifier: default
   projectIdentifier: edgartest
+  serviceDefinition:
+    spec:
+      manifests:
+        - manifest:
+            identifier: testbug
+            type: K8sManifest
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: edgargithub
+                  gitFetchType: Branch
+                  paths:
+                    - charts/hello-world
+                  repoName: helm-examples
+                  branch: main
+              skipResourceVersioning: false
+              enableDeclarativeRollback: false
+      artifacts:
+        primary:
+          primaryArtifactRef: <+input>
+          sources:
+            - spec:
+                connectorRef: account.harnessImage
+                imagePath: /test1
+                tag: <+input>
+                digest: ""
+              identifier: artifact1
+              type: DockerRegistry
+            - spec:
+                connectorRef: account.harnessImage
+                imagePath: /test2
+                tag: <+input>
+                digest: ""
+              identifier: artifact2
+              type: DockerRegistry
+    type: Kubernetes
