@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: edgar-infra-override-bug
+  identifier: edgarinfraoverridebug
+  orgIdentifier: default
+  projectIdentifier: edgartest
+  environmentRef: edgarenvoverridebug
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: <+input>
+    namespace: <+input>
+    releaseName: <+input>
+  allowSimultaneousDeployments: false
