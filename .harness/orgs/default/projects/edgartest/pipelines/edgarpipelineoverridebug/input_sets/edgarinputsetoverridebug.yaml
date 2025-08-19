@@ -1,0 +1,39 @@
+inputSet:
+  name: edgar-inputset-override-bug
+  identifier: edgarinputsetoverridebug
+  orgIdentifier: default
+  projectIdentifier: edgartest
+  pipeline:
+    identifier: edgarpipelineoverridebug
+    stages:
+      - stage:
+          identifier: deploy
+          type: Deployment
+          spec:
+            service:
+              serviceRef: edgarserviceoverridebug
+              serviceInputs:
+                serviceDefinition:
+                  type: Kubernetes
+                  spec:
+                    artifacts:
+                      primary:
+                        primaryArtifactRef: artifact2
+                        sources:
+                          - identifier: artifact2
+                            type: DockerRegistry
+                            spec:
+                              tag: 1.0.0
+              gitBranch: PIPE-29063
+            environment:
+              environmentRef: edgarenvoverridebug
+              gitBranch: PIPE-29063
+              infrastructureDefinitions:
+                - identifier: edgarinfraoverridebug
+                  inputs:
+                    identifier: edgarinfraoverridebug
+                    type: KubernetesDirect
+                    spec:
+                      connectorRef: account.K8s
+                      namespace: test
+                      releaseName: test
