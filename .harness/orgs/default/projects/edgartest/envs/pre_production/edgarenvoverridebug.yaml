@@ -1,0 +1,6 @@
+environment:
+  name: edgar-env-override-bug
+  identifier: edgarenvoverridebug
+  orgIdentifier: default
+  projectIdentifier: edgartest
+  type: PreProduction
