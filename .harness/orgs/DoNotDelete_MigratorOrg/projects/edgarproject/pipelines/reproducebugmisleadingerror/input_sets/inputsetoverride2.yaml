@@ -1,0 +1,39 @@
+inputSet:
+  name: inputset-override-2
+  identifier: inputsetoverride2
+  orgIdentifier: DoNotDelete_MigratorOrg
+  projectIdentifier: edgarproject
+  pipeline:
+    identifier: reproducebugmisleadingerror
+    stages:
+      - stage:
+          identifier: deploy
+          type: Deployment
+          spec:
+            service:
+              serviceRef: qaservice
+              serviceInputs:
+                serviceDefinition:
+                  type: Kubernetes
+                  spec:
+                    artifacts:
+                      primary:
+                        primaryArtifactRef: artifact2
+                        sources:
+                          - identifier: artifact2
+                            type: DockerRegistry
+                            spec:
+                              tag: 0.0.1
+              gitBranch: PIPE-29063
+            environment:
+              environmentRef: qaenv
+              gitBranch: PIPE-29063
+              infrastructureDefinitions:
+                - identifier: qainfra2
+                  inputs:
+                    identifier: qainfra2
+                    type: KubernetesDirect
+                    spec:
+                      connectorRef: org.KubernetesConnectorWithInclusterDelegateForAutomationTest
+                      namespace: test
+                      releaseName: test
