@@ -1,0 +1,17 @@
+pipeline:
+  name: parent-pipe-4
+  identifier: parentpipe4
+  tags: {}
+  projectIdentifier: edgartest
+  orgIdentifier: default
+  stages:
+    - stage:
+        name: tea
+        identifier: tea
+        description: ""
+        type: Pipeline
+        spec:
+          org: default
+          pipeline: childpipe1
+          project: edgartest
+          gitBranch: devtest
