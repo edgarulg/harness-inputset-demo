@@ -1,0 +1,17 @@
+pipeline:
+  name: parent-pipe-2
+  identifier: parentpipe2
+  tags: {}
+  projectIdentifier: edgartest
+  orgIdentifier: default
+  stages:
+    - stage:
+        name: test
+        identifier: test
+        description: ""
+        type: Pipeline
+        spec:
+          org: default
+          pipeline: childpipe1
+          project: edgartest
+          gitBranch: devtest
