@@ -15,3 +15,5 @@ pipeline:
           pipeline: childpipe1
           project: edgartest
           gitBranch: devtest
+          inputSetReferences:
+            - inputset06March
