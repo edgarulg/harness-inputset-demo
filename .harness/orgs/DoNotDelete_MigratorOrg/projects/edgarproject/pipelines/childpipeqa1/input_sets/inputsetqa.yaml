@@ -1,0 +1,19 @@
+inputSet:
+  name: inputset-qa
+  identifier: inputsetqa
+  orgIdentifier: DoNotDelete_MigratorOrg
+  projectIdentifier: edgarproject
+  pipeline:
+    identifier: childpipeqa1
+    stages:
+      - stage:
+          identifier: wait
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    identifier: Wait_1
+                    type: Wait
+                    spec:
+                      duration: 32s
