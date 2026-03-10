@@ -30,3 +30,5 @@ pipeline:
           pipeline: childpipeqa1
           project: edgarproject
           gitBranch: develop-patch-qa
+          inputSetReferences:
+            - inputsetqa
