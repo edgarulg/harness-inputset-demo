@@ -6,19 +6,29 @@ pipeline:
   orgIdentifier: default
   stages:
     - stage:
-        name: wair
-        identifier: wair
+        name: print-trigger
+        identifier: printtrigger
         description: ""
         type: Custom
         spec:
           execution:
             steps:
               - step:
-                  type: Wait
-                  name: Wait_1
-                  identifier: Wait_1
+                  type: ShellScript
+                  name: ShellScript_1
+                  identifier: ShellScript_1
                   spec:
-                    duration: 11s
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: |-
+                          echo "trigger expression"
+                          echo <+trigger>
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
         tags: {}
     - stage:
         name: run-child
