@@ -1,0 +1,34 @@
+pipeline:
+  name: pipe-parent-expression1
+  identifier: pipeparentexpression1
+  tags: {}
+  projectIdentifier: edgartest
+  orgIdentifier: default
+  stages:
+    - stage:
+        name: wair
+        identifier: wair
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: Wait
+                  name: Wait_1
+                  identifier: Wait_1
+                  spec:
+                    duration: 11s
+        tags: {}
+    - stage:
+        name: run-child
+        identifier: runchild
+        description: ""
+        type: Pipeline
+        spec:
+          org: default
+          project: edgartest
+          pipeline: childpipe1
+          gitBranch: devtest
+          inputSetReferences:
+            - inputset06March
