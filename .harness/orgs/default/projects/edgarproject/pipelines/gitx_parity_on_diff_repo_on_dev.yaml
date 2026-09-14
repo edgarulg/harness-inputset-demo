@@ -9,3 +9,4 @@ pipeline:
               echo "running pipeline from another repo and dev branch"
               exit 0
           id: run1
+          timeout: <+input>
